@@ -1,7 +1,8 @@
 <div class="orange">
-
+<p>Visible elements: {{ visibleElements }}
 <div *ngFor="let pokemon of pokemons">
-  <app-pokemon-details [pokemon]="pokemon">
+  <app-pokemon-details [pokemon]="pokemon"
+  (onToggleVisibility)="onToggleVisibility($event)">
   </app-pokemon-details>
 </div>
 

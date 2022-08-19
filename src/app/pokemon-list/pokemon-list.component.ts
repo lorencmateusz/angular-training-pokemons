@@ -9,10 +9,20 @@ import { PokemonService } from './pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
   public pokemons: Pokemon[] = [];
+  public visibleElements = 0;
 
   constructor(public pokemonService: PokemonService) {}
 
   ngOnInit() {
     this.pokemons = this.pokemonService.getPokemonList();
+  }
+
+  public onToggleVisibility($event: boolean): void {
+    if($event === true) {
+      this.visibleElements++
+    }
+    else this.visibleElements--;
+  
+
   }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Pokemon } from 'src/app/models/pokemon';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Pokemon } from '../../models/pokemon';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -8,8 +8,16 @@ import { Pokemon } from 'src/app/models/pokemon';
 })
 export class PokemonDetailsComponent implements OnInit {
   @Input() pokemon: Pokemon;
+  @Output() onToggleVisibility = new EventEmitter<boolean>();
+
+  public visible: boolean = false;
 
   constructor() {}
 
   ngOnInit() {}
+
+  public toggleVisibility(): void {
+    this.visible = !this.visible;
+    this.onToggleVisibility.emit(this.visible);
+  }
 }

@@ -1,6 +1,6 @@
-<p>
-Name: {{ pokemon.name }}
+<h3 (click)="toggleVisibility()">Name: {{ pokemon.name }}</h3>
+<div *ngIf="visible">
 HP: {{ pokemon.hp }}
 Attack: {{ pokemon.attack }}
 Defence: {{ pokemon.defence }}
-</p>
+</div>
